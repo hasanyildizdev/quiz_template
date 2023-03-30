@@ -4,11 +4,10 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background: linear-gradient(90deg, rgba(0,212,255,1) 45%, rgba(30,64,196,1) 77%);
+    background: #584EA7;/* linear-gradient(90deg, rgba(0,212,255,1) 45%, rgba(30,64,196,1) 77%); */
     position: relative;
     padding-top: 50px;
     min-height: 100vh;
-
   }
 
   .row {
@@ -20,7 +19,7 @@
     margin: auto;
     background-color: #fff;
     color: #000;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 20px;
   }
   
@@ -70,22 +69,22 @@
     color: #fff;
     font-size: 25px;
     border-radius: 25px;
-    height: 100px;
+    height: 80px;
     width: 70%;
     margin: 20px;
     background-color: #5096F8;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     cursor:pointer;
   }
 
   .text{
     border-radius: 25px;
-    height: 150px;
+    height: 120px;
     width: 70%;
     margin: auto;
     background-color: #fff;
     color: #000;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -104,7 +103,7 @@
      display: flex;
      justify-content: center;
      align-items: center;
-     margin-bottom: 20px;
+     margin-bottom: 10px;
      
      position: relative;
      top: 0;
@@ -131,7 +130,7 @@
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     font-size: 1.5vw;
+     font-size: 1.2vw;
      font-weight: bold;
      cursor:pointer;
      text-decoration: none;
@@ -239,13 +238,13 @@
   .rowTop {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
   }
 
   .questionNr {
@@ -253,24 +252,27 @@
     background-color: rgba(0, 0, 0 , 0.5);   
     border-radius: 5px;
     height: 5%;
-    padding: 5px 15px;
+    padding: 1vw 2vw;
   }
 
   .exitButton {
     color: #fff;
     background-color: rgba(0, 0, 0 , 0.5);   
-    border-radius: 3px;
-    padding: 5px 8px;
+    border-radius: 0.5vw;
+    padding: 0.5vw 0.7vw;
     cursor:pointer;
+    font-size: 1vw;
+    font-weight: bold;
   }
 
   .question {
     width: 80%;
-    background-color: #fff;
-    color: #000;
+    color: #fff;
+    background-color: #212373;
+    border: solid 0.3vw #CCAAF0;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    padding: 10px;
+    padding: 1vw 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,15 +283,15 @@
 
   .timer {
     width: 80%;
-    height: 10%;
     margin: auto;
     border-radius: 15px;
-    background-color: #fff;
-    color: #000;
-    margin-bottom: 20px;
+    color: #fff;
+    background-color: #212373;
+    border: solid 0.3vw #CCAAF0;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 3.5vw;
   }
   
   .timer p {
@@ -310,12 +312,12 @@
     width: 100%;
     background-color: #999;
     border-radius: 5px;
-    margin: 0 20px;
+    margin: 0 2%;
   }
   
   .myBar {
     width: 1%;
-    height: 30px;
+    height: 2.5vw;
     background-color: #E6BE43;
     border-radius: 5px;
   }
@@ -326,17 +328,26 @@
   }
 
   .answer {
-    color: #000;
-    background-color: #fff;
-    width: 40%;
+    color: #fff;
+    background-color: #212373;
+    border: solid 0.2vw #CCAAF0;
+    width: 35%;
     border-radius: 10px;
     padding: 2% 0;
-    margin: 10px;
+    margin: 2%;
     cursor: pointer;
+    font-size: 1.5vw;
+  }
+
+  .answer:hover {
+    transform: scale(1.01);
+    border: solid 0.2vw #00FF7F;
   }
 
   .answer.selected {
-    background-color: green;
+    color: #000;
+    background-color: #00FF7F;
+    border: solid 0.2vw #CCAAF0;
   }
 
   .score {
@@ -436,4 +447,65 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
+  }
+
+  .login-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .login-form {
+    text-align: left;
+    width: 20%;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5vw;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .login-form h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 2vw;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-button {
+    background-color: #C6554F;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .form-button2{
+    background-color: #3A3C62;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
