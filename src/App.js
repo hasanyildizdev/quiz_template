@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Main from './components/main.components';
+import Game from './components/quiz.components';
+import Result from './components/result.components';
+import Timer from './components/timer.components';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <div className="App">
+          <Routes>
+            <Route path='/' element={<Main/>}/>
+            <Route path='/quiz' element={<Game/> }/>
+            <Route path='/result' element={<Result/>}/>
+            <Route path='/timer' element={<Timer/>}/>
+          </Routes>
+        </div>
+    </Router>
   );
 }
 
