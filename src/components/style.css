@@ -193,17 +193,48 @@
     cursor:pointer;
   }
 
-  .shareInput {
-    background-color: #4B5563;
+  .shareDiv {
     position: relative;
-    border-radius: 4%;
-    box-shadow: 5px 5px #000;
+    border-radius: 10px;
     width: 80%;
     margin: auto;
     margin-bottom: 12%;
-    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+  }
+  
+  .shareDiv input {
+    border: solid 2px #5096F8;
+    text-align: left;
+    display: flex;
+    border-radius: 10px;
+    background-color: #F3F4F6;
+    padding-left: 20%;
+    font-size: 1vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
   }
 
+  .shareDiv input:focus {
+    border: solid 1px #000;
+  }
+
+  .shareDiv svg {
+    width: 10%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    background-color: #E5E7EB;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    z-index: 9999;
+  }
 
   .rowTop {
     display: flex;
@@ -391,4 +422,18 @@
   .timer_div img{
     width: 100%;
     height: auto;
+  }
+
+  .alert-message {
+    border: solid 1px #000;
+    background-color: greenyellow;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
   }
