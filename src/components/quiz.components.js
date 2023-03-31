@@ -46,20 +46,41 @@ export default class Game extends Component{
     }
   }
 
+  answered() {
+    music.stopMusic();
+/*     let time = document.getElementById("timer").innerText;
+    let score = 0;
+    if(this.state.selectedAnswer===correctAnswer) { 
+      music.playCorrect; 
+      if(time <= 5 ) { score = 10 + 2; }
+      else { score = 10; }
+    }
+    else { 
+      music.playWrong; 
+      score = 0; 
+    } */
+    
+    music.playCorrect();
+    clearInterval(this.id);
+    setTimeout(() => {
+      this.setState({ redirect: true });
+    }, 2500);
+  }
+
   handleExitClick() {
-    music.stop();
+    music.stopMusic();
     clearInterval(this.id);
     this.i = 0;
   }
 
   componentDidMount() {
     this.move();
-    music.play(); 
+    music.playMusic(); 
   }
 
   render() {  
         if (this.state.redirect) {
-          music.stop();
+          music.stopMusic();
           return <Navigate to={'/timer'} />;
         }
         return (
@@ -88,18 +109,18 @@ export default class Game extends Component{
 
               <div>
                   <div className='answer_row'> 
-                      <button id='answer1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'}`} onClick={() => this.setState({ selectedAnswer: 1 })}>
+                      <button id='answer1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 1 }); this.answered(); }}>
                         در صورت تایید باز کردن معاملات شورت
                       </button>
-                      <button id='answer2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'}`} onClick={() => this.setState({ selectedAnswer: 2 })}>
+                      <button id='answer2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 2 }); this.answered(); }}>
                         هیچکدام     
                       </button>
                   </div>
                   <div className='answer_row'> 
-                      <button id='answer3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'}`} onClick={() => this.setState({ selectedAnswer: 3 })}>
+                      <button id='answer3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 3 }); this.answered(); }}>
                         در صورت تایید باز کردن معاملات شورت
                       </button>
-                      <button id='answer4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'}`} onClick={() => this.setState({ selectedAnswer: 4 })}>
+                      <button id='answer4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 4 }); this.answered(); }}>
                         هیچکدام     
                       </button>
                   </div>

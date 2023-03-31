@@ -1,12 +1,20 @@
 const audio = new Audio('media/music.mp3');
+const correct = new Audio('media/true.mp3');
+const wrong = new Audio('media/wrong.mp3');
 
  const music = {
-  play: () => {
+  playMusic: () => {
     audio.play();
   },
-  stop: () => {
+  stopMusic: () => {
     audio.pause();
     audio.currentTime = 0;
+  },
+  playCorrect: () => {
+    correct.play();
+  },
+  playWrong: () => {
+    wrong.play();
   }
 };
 

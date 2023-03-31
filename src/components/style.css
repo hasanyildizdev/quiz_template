@@ -17,18 +17,22 @@
     height: 120px;
     width: 80%;
     margin: auto;
-    background-color: #fff;
+    background-color: #16076E;
     color: #000;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin-bottom: 2vw;
+    margin-top: 2vw;
+    border: solid 0.2vw #CCAAF0;
   }
   
   .item {
+    margin: auto;
+    background-color: #fff;
+    border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    width: 45%;
+    gap: 1.5vw;
+    width: 20%;
   }
 
   .title1 {
@@ -43,7 +47,8 @@
   }
 
   .item img{
-    height: 30%;
+    height: 100%;
+    width: 100%;
   }
 
   .logo img{
@@ -53,33 +58,69 @@
     left: 46%;
     width: 7%;
     border-radius: 100%;
-    border: 5px solid #E6BE43;
+    border: solid 0.3vw #16076E;
+  }
+
+  .twoButtons{
+    margin-bottom: 1.5vw;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .button { 
     font-size: 2vw;
     border-radius: 25px;
-    height: 100px;
     width: 30%;
-    margin: 20px;
     cursor:pointer;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw;
+    margin-bottom: 2vw;
   }
 
-  .button2{ 
-    color: #fff;
-    font-size: 25px;
+  .button svg {
+    width: 4vw;
+    height: 2.5vw;
+  }
+
+  .friends {
+    width: 30%;
+    margin: auto;
     border-radius: 25px;
-    height: 80px;
-    width: 70%;
-    margin: 20px;
     background-color: #5096F8;
-    margin-bottom: 20px;
+    margin-bottom: 2vw;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .friendsButton{
+    border-radius: 999px;
+    width: 100%;
+    height: 4vw;
+    color: #fff;
+    background-color: #5096F8;
+    font-size: 25px;
     cursor:pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .friendsButton svg {
+    width: 4.5vw;
+    height: 3vw;
   }
 
   .text{
     border-radius: 25px;
-    height: 120px;
+    height: 100px;
     width: 70%;
     margin: auto;
     background-color: #fff;
@@ -89,57 +130,62 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
-  }
-
-  .hand_down {
-     height: 70px;
-     width: 50%;
-     margin: auto;
-     background-color: #4B5563;
-     color: #fff;
-     border-radius: 20px;
-     font-size: 2vw;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     margin-bottom: 10px;
-     
-     position: relative;
-     top: 0;
-     animation-name: handUpDown;
-     animation-duration: 2s;
-     animation-timing-function: ease-in-out;
-     animation-iteration-count: infinite;
-  }
-
-  @keyframes handUpDown {
-    0% { top: 0; }
-    50% { top: -15px; } /* Move the div up */
-    100% { top: 0; } /* Move the div back down */
+    margin-bottom: 1vw;
   }
 
   .playButton {
-     height: 20%;
-     width: 20%;
+     width: 15%;
      margin: auto;
+     margin-bottom: 1vw;
      border-radius: 20px;
-     color: #fff;
-     background-color: #42D979;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     font-size: 1.2vw;
-     font-weight: bold;
+     background-color: #59BB64;
+     border: solid 0.4vw #207D48;
      cursor:pointer;
-     text-decoration: none;
+    }
+    
+  .playInside {
+    display: flex;
+  }
+
+  .playArrow{
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    top: 0;
+    animation-name: arrowRightLeft;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  .playArrow img {
+    width: 60%;
+  }
+
+  @keyframes arrowRightLeft {
+    0% { left: 0; }
+    50% { left: -15px; } 
+    100% { left: 0; }
+  }
+  
+  .playSub {
+    width: 50%;
+    height: 100%;
+    margin: auto;
+  }
+
+  .playSub p {
+    font-size: 1.6vw;
+    font-weight: bold;
+    margin: 0.5vw;
+    color: #fff;
   }
   
 
-  .playButton img {
-    width: 30%;
-    margin-top: 5%;
+  .playSub img {
+    width: 50%;
+    margin-top: 0.5vw;
   }
 
   .alert {
@@ -151,7 +197,7 @@
       transform: translate(-50%, -50%);  
       background-color: #fff;
       border-radius: 25px;
-      padding: 20px;
+      padding: 2vw;
       z-index: 999;
   }
 
@@ -175,21 +221,23 @@
   }
 
   .alert p {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     text-align: right;
-    margin-bottom: 10%;
+    margin-bottom: 5vw;
   }
 
   .alertSubButton {
-    height: 15%;
-    width: 25%;
+    height: 3vw;
+    width: 8vw;
     border-radius: 10px;
-    background-color: #DBEAFE;
-    font-size: 1vw;
+    font-size: 1.5vw;
     position: absolute;
     right: 20px;
-    bottom: 10px;
+    bottom: 1vw;
     cursor:pointer;
+    color: #fff;
+    background-color: #1C8ADB;
+    border: solid 0.2vw #fff;
   }
 
   .shareDiv {
@@ -202,10 +250,10 @@
     justify-content: center;
     align-items: center;
     height: 45px;
+    border: none;
   }
   
   .shareDiv input {
-    border: solid 2px #5096F8;
     text-align: left;
     display: flex;
     border-radius: 10px;
@@ -217,10 +265,12 @@
     right: 0;
     top: 0;
     bottom: 0;
+    border: none;
   }
 
   .shareDiv input:focus {
-    border: solid 1px #000;
+    border: solid 0.2vw #0DCAF0;
+    outline: none;
   }
 
   .shareDiv svg {
@@ -228,11 +278,11 @@
     height: 100%;
     display: inline-block;
     position: absolute;
-    left: 0;
+    left: -0.2vw;
     background-color: #E5E7EB;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    z-index: 9999;
+    z-index: 999;
   }
 
   .rowTop {
@@ -256,6 +306,7 @@
   }
 
   .exitButton {
+    border: none;
     color: #fff;
     background-color: rgba(0, 0, 0 , 0.5);   
     border-radius: 0.5vw;
@@ -295,6 +346,7 @@
   }
   
   .timer p {
+    width: 1%;
     font-size: 1.5vw;
     color: #E6BE43;
     margin-left: 2%;
@@ -354,20 +406,21 @@
     margin: auto;
     width: 10vw;
     height: 10vw;
-    background-color: #fff;
+    background-color: #212373;
     border-radius: 10vw;
-    border: solid 2px #E6BE43;
-    margin-bottom: 2%;
+    border: solid 0.2vw #CCAAF0;
+    margin-bottom: 3%;
   }
 
   .score h1 {
-    color: #000;
+    color: #fff;
     font-size: 2vw;
   }
 
   .score p {
-    color: #000;
+    color: #fff;
     font-size: 2vw;
+    margin: 0;
   }
 
   .answer_results {
@@ -375,37 +428,51 @@
     margin: auto;
     display: flex;
     justify-content: center;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
   }
 
   
   .goProfileButton {
-    color: #fff;
     font-size: 2vw;
-    height: 80px;
-    width: 30%;
-    background-color: #E6BE43;
-    border-radius: 20px;
-    box-shadow: 3px -3px  #FFA500;
+    color: #FFFFFF ;
+    background-color: #1C8ADB   ;
+    border: solid 0.2vw #FFFFFF  ;
+    box-shadow: 0.2vw  0.2vw 0.2vw rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
     cursor:pointer;
+    padding: 1vw 2vw;
   }
   
-  .buttonResult{
-    background-color: #fff;
+  .buttonResultCorrect{
+    background-color: rgba(0, 255, 0, 0.5); 
+    color: #fff;
     width: 20%;
-    margin: 10px;
     padding: 1.5%;
-    border-radius: 4px;
+    border-radius: 0.2vw;
     display: flex; 
     justify-content: center;
     align-items: center;
+    font-size: 1vw;
+    margin-left: 1vw;
+  }
+  .buttonResultWrong{
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #fff;
+    width: 20%;
+    padding: 1.5%;
+    border-radius: 0.2vw;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+    margin-right: 1vw;
   }
 
   .result_icon_wrong {
     width: 10%;
     color: #fff;
     background-color: red;
-    margin-left: 10px;
+    margin-left: 1vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -417,7 +484,7 @@
     width: 10%;
     color: #fff;
     background-color: green;
-    margin-left: 10px;
+    margin-left: 1vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -436,11 +503,12 @@
   }
 
   .alert-message {
-    border: solid 1px #000;
-    background-color: greenyellow;
-    color: black;
+    border: solid 0.1vw #000;
+    background-color: #FEF102;
+    color: #000;
     padding: 10px;
-    font-size: 16px;
+    font-size: 1vw;
+    font-weight: bold;
     border-radius: 5px;
     position: fixed;
     top: 10%;
@@ -508,4 +576,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .purpleStyle {
+    color: #fff;
+    background-color: #212373;
+    border: solid 0.2vw #CCAAF0;
   }
