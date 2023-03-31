@@ -32,7 +32,7 @@ export default class Timer extends Component{
                 </div>
 
                 <div className='timer_div'>
-                    <img  src="img/timer.webp" alt="Logo"/>
+                    <img  src="/img/timer.webp" alt="Logo"/>
                 </div>
             </div>
         )

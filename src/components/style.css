@@ -13,7 +13,7 @@
   .row {
     display: flex;
     justify-content: space-between;
-    border-radius: 25px;
+    border-radius: 999px;
     height: 120px;
     width: 80%;
     margin: auto;
@@ -21,7 +21,7 @@
     color: #000;
     margin-bottom: 2vw;
     margin-top: 2vw;
-    border: solid 0.2vw #CCAAF0;
+    /* border: solid 0.2vw #CCAAF0; */
   }
   
   .item {
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5vw;
+    gap: 1vw;
     width: 20%;
   }
 
@@ -71,7 +71,7 @@
   }
 
   .button { 
-    font-size: 2vw;
+    font-size: 1.5vw;
     border-radius: 25px;
     width: 30%;
     cursor:pointer;
@@ -121,11 +121,11 @@
   .text{
     border-radius: 25px;
     height: 100px;
-    width: 70%;
+    width: 65%;
     margin: auto;
     background-color: #fff;
     color: #000;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -320,7 +320,7 @@
     width: 80%;
     color: #fff;
     background-color: #212373;
-    border: solid 0.3vw #CCAAF0;
+    border: solid 0.2vw #CCAAF0;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     padding: 1vw 0;
@@ -338,7 +338,7 @@
     border-radius: 15px;
     color: #fff;
     background-color: #212373;
-    border: solid 0.3vw #CCAAF0;
+  /*   border: solid 0.3vw #CCAAF0; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -397,8 +397,7 @@
   }
 
   .answer.selected {
-    color: #000;
-    background-color: #00FF7F;
+    color: #fff;
     border: solid 0.2vw #CCAAF0;
   }
 
@@ -581,5 +580,6 @@
   .purpleStyle {
     color: #fff;
     background-color: #212373;
-    border: solid 0.2vw #CCAAF0;
+   /*  border: solid 0.2vw #CCAAF0; */
+   border: none;
   }

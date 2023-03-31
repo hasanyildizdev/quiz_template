@@ -5,11 +5,12 @@ import Result from './components/result.components';
 import Timer from './components/timer.components';
 import Login from './components/login.component';
 import Signup from './components/signup.component';
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+
   return (
+    
     <Router>
         <div className="App">
           <Routes>

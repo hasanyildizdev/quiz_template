@@ -2,6 +2,7 @@ import './style.css';
 import React, {Component} from "react";
 import { Navigate, Link } from 'react-router-dom';
 import music from './music';
+import jsonData from './data/questions.json';
 
 export default class Game extends Component{
 
@@ -46,21 +47,32 @@ export default class Game extends Component{
     }
   }
 
-  answered() {
+  answered(answer) {
     music.stopMusic();
-/*     let time = document.getElementById("timer").innerText;
+    let time = document.getElementById("timer").innerText;
     let score = 0;
-    if(this.state.selectedAnswer===correctAnswer) { 
-      music.playCorrect; 
+    let correctAnswer = jsonData.questions[0].correct_answer_id;
+    if(answer === correctAnswer) { 
+      music.playCorrect(); 
       if(time <= 5 ) { score = 10 + 2; }
       else { score = 10; }
+      document.getElementById(answer).style.backgroundColor = "green";
+      clearInterval(this.id);
+      setTimeout(() => {
+        this.setState({ redirect: true });
+      }, 1500);
     }
     else { 
-      music.playWrong; 
+      music.playWrong(); 
       score = 0; 
-    } */
+      document.getElementById(answer).style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+      document.getElementById(correctAnswer).style.backgroundColor = "rgba(0, 255, 0, 0.5)";
+      clearInterval(this.id);
+      setTimeout(() => {
+        this.setState({ redirect: true });
+      }, 2500);
+    }  
     
-    music.playCorrect();
     clearInterval(this.id);
     setTimeout(() => {
       this.setState({ redirect: true });
@@ -85,6 +97,7 @@ export default class Game extends Component{
         }
         return (
             <div className="bg">
+
               <div className='rowTop'>
                   <div className='questionNr'> 7 / 7 </div>
                   <Link style={{ textDecoration: 'none' }} to={'/'}> 
@@ -103,29 +116,28 @@ export default class Game extends Component{
               </div>
 
               <div className='question'>
-                  کدام روز ها از هفته بازار نقدینگی کمتری دارد
+                 {jsonData.questions[0].text}
               </div>
               
 
               <div>
                   <div className='answer_row'> 
-                      <button id='answer1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 1 }); this.answered(); }}>
-                        در صورت تایید باز کردن معاملات شورت
+                      <button id='1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 1 }); this.answered(1); }}>
+                          {jsonData.questions[0].answers[0].text}
                       </button>
-                      <button id='answer2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 2 }); this.answered(); }}>
-                        هیچکدام     
+                      <button id='2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 2 }); this.answered(2); }}>
+                          {jsonData.questions[0].answers[1].text}
                       </button>
                   </div>
                   <div className='answer_row'> 
-                      <button id='answer3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 3 }); this.answered(); }}>
-                        در صورت تایید باز کردن معاملات شورت
+                      <button id='3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 3 }); this.answered(3); }}>
+                          {jsonData.questions[0].answers[2].text}
                       </button>
-                      <button id='answer4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 4 }); this.answered(); }}>
-                        هیچکدام     
+                      <button id='4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 4 }); this.answered(4); }}>
+                          {jsonData.questions[0].answers[3].text}
                       </button>
                   </div>
               </div>
-
             </div>
         )
     }

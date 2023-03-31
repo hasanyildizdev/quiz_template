@@ -1,7 +1,8 @@
 import './style.css';
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
-
+/* import ParticlesComponent from './particles';
+<ParticlesComponent/> */
 export default class Main extends Component{
     constructor(props) {
         super(props);
@@ -47,7 +48,6 @@ export default class Main extends Component{
     render() {
         return (
             <div className="bg">
-
                 <div className="row">
                     <div className='logo'>
                         <img src="img/logo.webp" alt="Logo"/>
@@ -76,8 +76,6 @@ export default class Main extends Component{
                     <p>
                         Block 11 Telegram kanalına üye olun, en iyi oyuncular ve ödüllerin duyurulmasından haberdar olun.
                     </p>
-
-
                 </div>
 
                 <div className="twoButtons">
