@@ -6,7 +6,7 @@
     height: 100%;
     background: #584EA7;/* linear-gradient(90deg, rgba(0,212,255,1) 45%, rgba(30,64,196,1) 77%); */
     position: relative;
-    padding-top: 50px;
+    padding-top: 10vh;
     min-height: 100vh;
   }
 
@@ -47,18 +47,18 @@
   }
 
   .item img{
-    height: 100%;
-    width: 100%;
+    width: 4vw;
   }
 
   .logo img{
     position: absolute;
     margin: auto;
-    top: 2%;
-    left: 46%;
+    top: 3%;
     width: 7%;
     border-radius: 100%;
     border: solid 0.3vw #16076E;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .twoButtons{
@@ -105,7 +105,7 @@
     height: 4vw;
     color: #fff;
     background-color: #5096F8;
-    font-size: 25px;
+    font-size: 1.5vw;
     cursor:pointer;
     border: none;
     display: flex;
@@ -136,10 +136,9 @@
   .playButton {
      width: 15%;
      margin: auto;
-     margin-bottom: 1vw;
      border-radius: 20px;
      background-color: #59BB64;
-     border: solid 0.4vw #207D48;
+     border: solid 0.3vw #207D48;
      cursor:pointer;
     }
     
@@ -205,10 +204,11 @@
     display: none;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0 , 0.5);
+    border: none;
   }
 
   .show {
@@ -218,6 +218,7 @@
   .alert h2 {
     font-size: 2vw;
     text-align: right;
+    font-weight: bold;
   }
 
   .alert p {
@@ -314,6 +315,9 @@
     cursor:pointer;
     font-size: 1vw;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .question {
@@ -335,7 +339,7 @@
   .timer {
     width: 80%;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 999px;
     color: #fff;
     background-color: #212373;
   /*   border: solid 0.3vw #CCAAF0; */
@@ -405,10 +409,14 @@
     margin: auto;
     width: 10vw;
     height: 10vw;
-    background-color: #212373;
-    border-radius: 10vw;
-    border: solid 0.2vw #CCAAF0;
+    border-radius: 50%;
     margin-bottom: 3%;
+    background-color: #212373;
+    border: solid 0.2vw #CCAAF0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .score h1 {
@@ -428,6 +436,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 4%;
+    gap: 2vw;
   }
 
   
@@ -452,7 +461,6 @@
     justify-content: center;
     align-items: center;
     font-size: 1vw;
-    margin-left: 1vw;
   }
   .buttonResultWrong{
     background-color: rgba(255, 0, 0, 0.5);
@@ -464,31 +472,6 @@
     justify-content: center;
     align-items: center;
     font-size: 1vw;
-    margin-right: 1vw;
-  }
-
-  .result_icon_wrong {
-    width: 10%;
-    color: #fff;
-    background-color: red;
-    margin-left: 1vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    padding: 3px;
-  }
-
-  .result_icons_true {
-    width: 10%;
-    color: #fff;
-    background-color: green;
-    margin-left: 1vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    padding: 3px;
   }
 
   .timer_div {
@@ -502,8 +485,8 @@
   }
 
   .alert-message {
-    border: solid 0.1vw #000;
-    background-color: #FEF102;
+    border: solid 0.2vw #000;
+    background-color: yellow;
     color: #000;
     padding: 10px;
     font-size: 1vw;
@@ -514,6 +497,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
+    padding: 0.8vw 2vw;
   }
 
   .login-container {
@@ -582,4 +566,553 @@
     background-color: #212373;
    /*  border: solid 0.2vw #CCAAF0; */
    border: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    
+    .row {
+      height: auto;
+      width: 90%;
+      margin-bottom: 3vh;
+      padding: 1.5vh 0;
+      margin-bottom: 4vh;
+    }
+
+    .logo img{
+      position: absolute;
+      top: 8%;
+      width: 10vw;
+      border-radius: 100%;
+      border: solid 0.3vw #16076E;
+    }
+
+    .item {
+      gap: 0;
+      height: auto;
+      width: auto;
+      padding: 0 4vw;
+    }
+
+    .item img{
+      height: 5vh;
+      width: auto;
+    }
+
+    .title1 {
+      font-size: 12px;
+    }
+  
+    .title {
+      font-size: 16px;
+    }
+
+    .text {
+      height: auto;
+      width: 80%;
+      font-size: 16px;
+      padding: 4vw;
+      margin-bottom: 3vh;
+    }
+
+    .twoButtons {
+      width: 100%;
+      margin-bottom: 3vh;
+    }
+
+    .button {
+      font-size: 14px;
+      padding: 1vw 2vh;
+      gap: 4px;
+      width: 35%;
+    }
+
+    .button svg {
+      width: auto;
+      height: 6vh;
+      min-width: 3vh;
+    }
+    
+    .friends {
+      width: 60%;
+      height: auto;
+      padding: 1.5vh;
+      margin-bottom: 4vh;
+    }
+
+    .friendsButton {
+      height: auto;
+      font-size: 16px;
+    }
+
+    .friendsButton svg {
+      width: auto;
+      height: 40px;
+    }
+
+    .playButton {
+      width: 50%;
+      padding: 1vh;
+    }
+
+    .playSub {
+      width: 60%;
+    }
+
+    .playSub p {
+      font-size: 18px;
+    }
+
+    .playArrow img {
+      width: 80%;
+      margin-left: 10px;
+    }
+
+    @keyframes arrowRightLeft {
+      0% { left: 0; }
+      50% { left: -10px; } 
+      100% { left: 0; }
+    }
+
+    .alert {
+      width: 80%;
+      height: auto;
+      border-radius: 10px;
+      padding: 4vw;
+    }
+
+    .alert h2{
+      font-size: 18px;
+    }
+
+    .alert p{
+      font-size: 16px;
+      margin-bottom: 10vw;
+    }
+
+    .alertSubButton {
+      font-size: 16px;
+      width: auto;
+      height: auto;
+      border-radius: 5px;
+      bottom: 2vw;
+    }
+
+    .shareDiv input {
+      font-size: 10px;
+    }
+
+    .shareDiv svg {
+      width: 18%;
+    }
+
+    .alert-message{
+      font-size: 16px;
+      padding: 1vw 2vw;
+    }
+
+    .rowTop {
+      width: 90%;
+      margin-bottom: 7%;
+    }
+
+    .exitButton {
+      font-size: 16px;
+      padding: 0.6vw 1.6vw;
+    }
+
+    .timer {
+      width: 90%;
+      margin-bottom: 7%;
+    }
+
+    .timer p{
+      width: auto;
+      font-size: 14px;
+      margin: 0.5vw 1.2vw;
+    }
+
+    .myBar {
+      height: 3vw;
+    }
+
+    .timer svg {
+      width: 8%;
+      height: auto;
+      margin: 0.5vw 1.2vw;
+    }
+
+    .question {
+      margin-bottom: 5%;
+      font-size: 16px;
+      height: auto;
+      padding: 2vh 2vw;
+    }
+
+    .answer_row {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .answer {
+      width: 75%;
+      height: auto;
+      font-size: 12px;
+      padding: 1.5vh 1.5vw;
+      margin: 4%;
+    }
+    
+    .timer_div {
+      width: 50%;
+    }
+
+    .score {
+        width: 30vw;
+        height: 30vw;
+        margin-bottom: 15%;
+    }
+
+    .score h1{
+      margin: 0;
+      font-size: 8vw;
+    }
+
+    .score p {
+      font-size: 8vw;
+    }
+
+    .answer_results {
+      width: 100%;
+      gap: 4vw;
+      margin-bottom: 15%;
+    }
+
+    .buttonResultCorrect {
+      width: 30%;
+      font-size: 6vw;
+      padding: 2% 5%;
+    }
+
+    .buttonResultWrong {
+      width: 30%;
+      font-size: 6vw;
+      padding: 2% 5%;
+    }
+
+    .goProfileButton {
+      font-size: 6vw;
+      padding: 1vh 5vw;
+    }
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 1000px) {
+    .row{
+      height: 8vw;
+      margin-bottom: 4vh;
+    }
+
+    .logo img {
+      top: 7.5%;
+    }
+
+    .item {
+      width: 30%;
+      height: 80%;
+    }      
+
+    .title1 {
+      font-size: 2vw;
+    }
+
+    .title {
+      font-size: 2vw;
+    }
+
+    .item img{
+      height: 80%;
+      width: auto;
+    }
+
+    .text {
+      font-size: 17px;
+      width: 70%;
+      height: auto;
+      padding: 0 2vw;
+      margin-bottom: 2vh;
+    }
+
+    .twoButtons {
+      width: 100%;
+      margin-bottom: 2vh;
+    }
+
+    .button {
+      font-size: 16px;
+      gap: 2vw;
+    }
+
+    .button svg {
+      height: 5vh;
+      width: auto;
+    }
+
+    .friends {
+      width: 45%;
+      margin-bottom: 4vh;
+    }
+    
+    .friendsButton {
+      height: 6vw;
+      font-size: 18px;
+    }
+
+    .friendsButton svg {
+      width: 4.5vw;
+      height: auto;
+    }
+
+    .playButton {
+      width: 25%;
+    }
+
+    .playSub p {
+      font-size: 22px;
+    }
+
+    .playSub img {
+      width: 60%;
+    }
+
+    .alert {
+      width: 80%;
+      height: auto;
+      border-radius: 10px;
+      padding: 4vw;
+    }
+
+    .alert h2{
+      font-size: 3.5vw;
+    }
+
+    .alert p{
+      font-size: 3vw;
+      margin-bottom: 5vw;
+    }
+
+    .alertSubButton {
+      font-size: 4vw;
+      width: auto;
+      height: auto;
+      bottom: 3vw;
+    }
+
+    .shareDiv input {
+      font-size: 16px;
+    }
+
+    .shareDiv svg {
+      width: 15%;
+    }
+
+    .alert-message{
+      font-size: 24px;
+      padding: 1vw 2vw;
+    }
+
+    .rowTop {
+      width: 90%;
+      margin-bottom: 5%;
+    }
+
+    .exitButton {
+      font-size: 16px;
+      padding: 0.6vw 1.6vw;
+    }
+
+    .timer {
+      width: 90%;
+      margin-bottom: 5%;
+    }
+
+    .timer p{
+      width: auto;
+      font-size: 14px;
+      margin: 0.5vw 1.2vw;
+    }
+
+    .myBar {
+      height: 3vw;
+    }
+
+    .timer svg {
+      width: 8%;
+      height: auto;
+      margin: 0.5vw 1.2vw;
+    }
+
+    .question {
+      margin-bottom: 3%;
+      font-size: 20px;
+      height: auto;
+      padding: 2vh 2vw;
+    }
+
+    .answer_row {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .answer {
+      width: 75%;
+      height: auto;
+      font-size: 16px;
+      padding: 1.5vh 1.5vw;
+      margin: 2%;
+    }
+    
+    .timer_div {
+      width: 50%;
+    }
+  }
+
+  @media screen and (min-width: 1000px) and (max-width: 1600px) {
+    .row {
+      height: 8vw;
+      margin-bottom: 4vh;
+    }
+
+    .logo img {
+      top: 7%;
+    }
+
+    .item {
+      width: 30%;
+    }
+    
+    .title1{
+      font-size: 22px;
+    }
+
+    .title {
+      font-size: 22px;
+    }
+
+    .item img {
+      width: 6vw;
+    }
+
+    .text {
+      height: auto;
+      font-size: 18px;
+      padding: 0 3vw;
+      margin-bottom: 2vh;
+    }
+
+    .twoButtons {
+      width: 80%;
+      height: auto;
+      margin-bottom: 2vh;
+    }
+
+    .button {
+      width: 35%;
+      font-size: 20px;
+    }
+
+    .button svg {
+      height: 3vw;
+      width: 6vw;
+    }
+
+    .friends {
+      margin-bottom: 3vw;
+    }
+
+    .friendsButton {
+      font-size: 22px;
+    }
+    
+    .playButton {
+    }
+
+    .playSub p { 
+      font-size: 20px;
+    }
+    
+
+    .playButton img {
+      width: 80%;
+    }
+
+    @keyframes arrowRightLeft {
+      0% { left: 0; }
+      50% { left: 10px; } 
+      100% { left: 0; }
+    }
+
+    .alert {
+      width: 70%;
+      height: auto;
+      border-radius: 10px;
+      padding: 4vw;
+    }
+
+    .alert h2{
+      font-size: 2.5vw;
+    }
+
+    .alert p{
+      font-size: 2vw;
+      margin-bottom: 3vw;
+    }
+
+    .shareDiv {
+      width: 60%;
+      margin-bottom:6%;
+    }
+
+    .alertSubButton {
+      font-size: 3vw;
+      width: auto;
+      height: auto;
+      bottom: 2vw;
+    }
+
+    .shareDiv input {
+      font-size: 20px;
+    }
+
+    .shareDiv svg {
+      width: 10%;
+    }
+
+    .alert-message{
+      font-size: 28px;
+      padding: 1vw 2vw;
+    }
+  }
+
+  @media screen and (min-width: 1600px) and (max-width: 2200px) {
+    .logo img {
+      top: 6%;
+    }
+
+    .title1{
+     font-size: 2vw; 
+    }
+  }
+
+  @media screen and (min-width: 2200px) and (max-width: 3600px) {
+
+    .row {
+      padding: 0.5vw 0;
+    }
+
+    .title1{
+     font-size: 30px; 
+    }
+
+    .item img {
+      height: 100px;
+      width: auto;
+    }
   }

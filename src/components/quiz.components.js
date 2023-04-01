@@ -54,7 +54,7 @@ export default class Game extends Component{
     let correctAnswer = jsonData.questions[0].correct_answer_id;
     if(answer === correctAnswer) { 
       music.playCorrect(); 
-      if(time <= 5 ) { score = 10 + 2; }
+      if(time >= 5 ) { score = 10 + 2; }
       else { score = 10; }
       document.getElementById(answer).style.backgroundColor = "green";
       clearInterval(this.id);

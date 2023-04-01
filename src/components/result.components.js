@@ -8,16 +8,16 @@ export default class Result extends Component{
         return (
             <div className="bg">
                 <div className='score'>
-                    <h1> 10 </h1>
-                    <p>  سکه  </p>
+                        <h1> 10 </h1>
+                        <p>  سکه  </p>
                 </div>
 
                 <div className='answer_results'>
                     <div className='buttonResultWrong'>
-                        <div> Yanlış cevap: 6 </div>
+                        <div> Yanlış: 6 </div>
                     </div>
                     <div className='buttonResultCorrect'>
-                        <div> Doğru cevap: 1  </div>
+                        <div> Doğru: 1  </div>
                     </div>
                 </div>
 

@@ -36,7 +36,7 @@ export default class Main extends Component{
       
         const alertMessage = document.createElement("div");
         alertMessage.classList.add("alert-message");
-        alertMessage.innerText = "Copied successfully!";
+        alertMessage.innerText = "COPIED!";
         document.body.appendChild(alertMessage);
       
         // Remove the alert message after a delay
@@ -50,14 +50,12 @@ export default class Main extends Component{
             <div className="bg">
                 <div className="row">
                     <div className='logo'>
-                        <img src="img/logo.webp" alt="Logo"/>
+                        <img src="img/logo.png" alt="Logo"/>
                     </div>
                     <div className="item">
-                        <div>
                             <img src="img/reward.webp" alt="Reward"/>
-                        </div>
                         <div>
-                            <h2 className='title1'>Rewards</h2>
+                            <h2 className='title1'>Reward</h2>
                             <h2 className='title'>0</h2>
                         </div>
                     </div>
@@ -66,9 +64,7 @@ export default class Main extends Component{
                             <h2 className='title1'>Coin</h2>
                             <h2 className='title'>0</h2>
                         </div>
-                        <div>
-                            <img src="img/coin.webp" alt="Coin"/>                     
-                        </div>
+                        <img src="img/coin.webp" alt="Coin"/>                     
                     </div>
                 </div>
 
