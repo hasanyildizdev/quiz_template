@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'quiz'
+  database: 'bilyoner'
 });
 
 connection.connect((error) => {
@@ -25,10 +25,12 @@ app.use(express.json());
 
 const questionRouter = require('./routes/question');
 const answersRouter = require('./routes/answers');
+const correctAnswersRouter = require('./routes/correct_answers');
 const usersRouter = require('./routes/users');
 
 app.use('/questions',questionRouter(connection));
 app.use('/answers',answersRouter(connection));
+app.use('/correct_answers',correctAnswersRouter(connection));
 app.use('/users',usersRouter);
 
 app.use((err, req, res, next) => {

@@ -1,6 +1,7 @@
 const audio = new Audio('media/music.mp3');
 const correct = new Audio('media/true.mp3');
-const wrong = new Audio('media/wrong.mp3');
+const wrong = new Audio('media/wrong.mp3'); 
+const time_up = new Audio('media/time_up.mp3'); 
 
  const music = {
   playMusic: () => {
@@ -15,6 +16,9 @@ const wrong = new Audio('media/wrong.mp3');
   },
   playWrong: () => {
     wrong.play();
+  },
+  playTimeUp: () => {
+    time_up.play();
   }
 };
 
