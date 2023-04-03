@@ -9,6 +9,10 @@ export default class Game extends Component {
     super(props);
     this.i = 0;
     this.id = null;
+    this.questinNr = 1;
+    this.questionCount = 0;
+    this.score = 0;
+
     this.state = {
       correctCartVisible: false,
       wrongCartVisible: false,
@@ -28,6 +32,7 @@ export default class Game extends Component {
     fetch('http://localhost:3001/questions')
       .then(response => response.json())
       .then(data => {
+        this.questionCount = data.length;
         this.setState({ questions: data });
       })
       .catch(error => console.error(error));
@@ -69,6 +74,7 @@ export default class Game extends Component {
           music.playTimeUp();
           this.setState({ timeisup_visible: true })
           setTimeout(() => {
+            this.questinNr++;
             this.i = 0;
             this.setState({ timeisup_visible: false });
             document.getElementById(correctAnswer).style.backgroundColor = "#16076E";
@@ -91,7 +97,6 @@ export default class Game extends Component {
 
 
   answered(answer) {
-    let score = 0;
     let time = document.getElementById("timer").innerText;
     let correctAnswer = this.state.correctAnswers.find((a) => a.question_id === 1)['correct_answer_id'];
     
@@ -102,18 +107,18 @@ export default class Game extends Component {
       music.playCorrect();
       this.setState({ correctCartVisible: true });
       document.getElementById(answer).style.backgroundColor = "rgba(0, 255, 0, 0.5)";
-      if (time >= 5) { score = 10 + 2; }
-      else { score = 10; }
+      if (time >= 5) { this.score = this.score + 12; }
+      else { this.score = this.score + 10; }
     }
     else {
       music.playWrong();
       this.setState({ wrongCartVisible: true });
       document.getElementById(answer).style.backgroundColor = "rgba(255, 0, 0, 0.5)";
       document.getElementById(correctAnswer).style.backgroundColor = "rgba(0, 255, 0, 0.5)";
-      score = 0;
     }
 
     setTimeout(() => {
+      this.questinNr++;
       this.i = 0;
       document.getElementById(answer).style.backgroundColor = "#16076E";
       document.getElementById(correctAnswer).style.backgroundColor = "#16076E";
@@ -123,8 +128,7 @@ export default class Game extends Component {
       music.playMusic();
       this.move();
     }, 3000);
-
-    console.log(score);
+    console.log(this.score);
   }
 
   handleExitClick() {
@@ -140,7 +144,7 @@ export default class Game extends Component {
       <div className="bg">
 
         <div className='rowTop'>
-          <div className='questionNr'> 7 / 7 </div>
+          <div className='questionNr'> { this.questinNr } / { this.questionCount } </div>
 
           <div id='timeisup' className='answeredCart' style={{ display: this.state.timeisup_visible ? 'block' : 'none' }}>
             <img src="/img/timer.webp" alt="Logo" />
@@ -171,24 +175,24 @@ export default class Game extends Component {
           </div>
 
           <div className='question'>
-            {this.state.questions[0].text}
+            {this.state.questions.find((a) => a.id === this.questinNr)?.text}
           </div>
 
           <div>
             <div className='answer_row'>
               <button id='1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 1 }); this.answered(1); }}>
-                {this.state.answers.find((a) => a.option === 1)?.text}
+                {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 1)?.text}
               </button>
               <button id='2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 2 }); this.answered(2); }}>
-                {this.state.answers.find((a) => a.option === 2)?.text}
+              {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 2)?.text}
               </button>
             </div>
             <div className='answer_row'>
               <button id='3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 3 }); this.answered(3); }}>
-                {this.state.answers.find((a) => a.option === 3)?.text}
+              {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 3)?.text}
               </button>
               <button id='4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 4 }); this.answered(4); }}>
-                {this.state.answers.find((a) => a.option === 4)?.text}
+              {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 4)?.text}
               </button>
             </div>
           </div>

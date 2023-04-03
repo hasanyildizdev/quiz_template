@@ -12,13 +12,13 @@ const time_up = new Audio('media/time_up.mp3');
     audio.currentTime = 0;
   },
   playCorrect: () => {
-    correct.play();
+     correct.play();
   },
   playWrong: () => {
-    wrong.play();
+     wrong.play();
   },
   playTimeUp: () => {
-    time_up.play();
+   time_up.play();
   }
 };
 
