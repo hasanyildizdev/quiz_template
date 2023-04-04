@@ -48,6 +48,17 @@ export default class Main extends Component{
     render() {
         return (
             <div className="bg">
+                <div className='adminPanel'>
+                    <Link style={{ textDecoration: 'none' }} to={'/admin'}>
+                        Admin
+                    </Link>
+                </div>
+                <div className='loginButtonDiv'>
+                    <Link style={{ textDecoration: 'none' }} to={'/login'}>
+                        <button className='loginButton'>Sign In</button>
+                    </Link>
+                </div>
+
                 <div className="row">
                     <div className='logo'>
                         <img src="img/logo.png" alt="Logo"/>

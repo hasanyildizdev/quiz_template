@@ -319,13 +319,13 @@
   }
 
   .question {
-    width: 80%;
+    width: 70%;
     color: #fff;
     background-color: #212373;
     border: solid 0.2vw #CCAAF0;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    padding: 1vw 0;
+    padding: 1vw 1vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -352,21 +352,20 @@
     font-size: 1.5vw;
     color: #E6BE43;
     margin-left: 2%;
+    margin-right: 1.5%;
   }
 
   .timer svg{
-    width: 5%;
-    height: 5%;
-    display: inline-block;
+    width: 4%;
     border-radius: 100%;
-    margin-right: 2%;
+    margin-right: 1.2%;
   }
 
   .myProgress {
     width: 100%;
     background-color: #999;
     border-radius: 5px;
-    margin: 0 2%;
+    margin: 0 1%;
   }
   
   .myBar {
@@ -385,9 +384,9 @@
     color: #fff;
     background-color: #212373;
     border: solid 0.2vw #CCAAF0;
-    width: 35%;
+    width: 30%;
     border-radius: 10px;
-    padding: 2% 0;
+    padding: 2% 1%;
     margin: 2%;
     cursor: pointer;
     font-size: 1.5vw;
@@ -441,16 +440,30 @@
     gap: 2vw;
   }
 
+    .no_answer {
+      width: 18%;
+      padding: 1%;
+      border-radius: 0.2vw;
+      margin:auto;
+      font-size: 1vw;
+      color: #FFFFFF ;
+      background-color: #808080;
+      margin-bottom: 4%;
+    }
+
   
   .goProfileButton {
-    font-size: 2vw;
+    font-size: 1.8vw;
     color: #FFFFFF ;
-    background-color: #1C8ADB   ;
-    border: solid 0.2vw #FFFFFF  ;
+    border:none;
+    background-color: #1C8ADB;
     box-shadow: 0.2vw  0.2vw 0.2vw rgba(0, 0, 0, 0.3);
     border-radius: 999px;
     cursor:pointer;
-    padding: 1vw 2vw;
+    padding: 0.7vw 1.5vw;
+  }
+  .goProfileButton:hover{
+    transform: scale(1.01);
   }
   
   .buttonResultCorrect{
@@ -489,8 +502,8 @@
   }
 
   .alert-message {
-    border: solid 0.2vw #000;
-    background-color: yellow;
+    border: solid 0.2vw #1C8ADB;
+    background-color: #fff;
     color: #000;
     padding: 10px;
     font-size: 1vw;
@@ -513,6 +526,7 @@
   }
   
   .login-form {
+    position: relative;
     text-align: left;
     width: 20%;
     margin: auto;
@@ -551,12 +565,18 @@
     border: none;
     cursor: pointer;
   }
+  .form-button:hover{
+    transform: scale(1.05);
+  }
   .form-button2{
     background-color: #3A3C62;
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
+  }
+  .form-button2:hover{
+    transform: scale(1.05);
   }
 
   .buttons {
@@ -572,6 +592,168 @@
    border: none;
   }
 
+  .loginButtonDiv {
+    position: absolute;
+    right: 0.5vw;
+    top: 1vh;
+  }
+
+  .loginButton {
+    font-size: 1.1vw;
+    color: #fff;
+    padding: 0.4vw 1vw;
+    background-color: none;
+    background-color: #584EA7;
+    border: solid 0.1vw #fff;
+    cursor: pointer;
+  }
+
+  .loginButton:hover {
+    transform: scale(1.01);
+    border: solid 0.1vw #00FF7F;
+  }
+ 
+  .loginButtonDiv a {
+    color: #fff;
+  }
+
+  .goBack {
+    margin-top: 3vh;
+    position: absolute;
+    right: 1vw;
+    top: 1vh;
+  }
+
+  .goBackButton{
+    background-color: #fff;
+    border: solid 0.1vw #000;
+    font-size: 1.1vw;
+    font-weight: bold;
+    padding: 0.2vw 0.5vw;
+    cursor:pointer;
+  }
+
+  .admin_bg {
+    padding: 2vw;
+    background-color: #a0a0a0;
+  }
+
+  .admin_bg h3 {
+    color: #fff;
+  }
+
+  .form-group-admin{
+    width: 30%;
+    margin:auto;
+    display: flex;
+    margin-top: 2vh;
+  }
+  .form-group-admin input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .form-group-admin input:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  .form-admin-submit-button{
+    margin-top: 2vh;
+  }
+
+  .form-admin-submit-button input {
+    background-color: #80bdff;
+    border: none;
+    font-size: 0.8vw;
+    font-weight: bold;
+    padding: 0.5vw 1vw;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .form-admin-submit-button input:hover {
+    transform: scale(1.02);
+  }
+
+  .adminPanel{
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    border: solid 0.1vw #fff;
+  }
+
+  .adminPanel a{
+    display: inline-block;
+    color: #fff;
+    font-size: 1vw;
+    font-weight: bold;
+    padding: 0.4vw 1vw;
+    cursor: pointer;
+  }
+
+  .questionList {
+    width: 95%;
+    margin: auto;
+    margin-top: 5vw;
+  }
+
+  .questionList h3{
+    color: #fff;
+  }
+
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+  }
+  
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    text-align: center;
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .table td:first-child,
+  .table th:first-child {
+    border-left: none;
+  }
+  
+  .table td:last-child,
+  .table th:last-child {
+    border-right: none;
+  }
 
   @media screen and (max-width: 600px) {
     
@@ -796,6 +978,8 @@
       gap: 4vw;
       margin-bottom: 15%;
     }
+
+
 
     .buttonResultCorrect {
       width: 30%;
@@ -1048,9 +1232,6 @@
       font-size: 22px;
     }
     
-    .playButton {
-    }
-
     .playSub p { 
       font-size: 20px;
     }

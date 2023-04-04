@@ -7,6 +7,11 @@ export default class Login extends Component {
         return (
             <div className="login-container">
                 <form className="login-form">
+                    <div className='goBack'>
+                        <Link style={{ textDecoration: 'none' }} to={'/'}>
+                            <button type="submit" className="goBackButton"> X</button>
+                        </Link>
+                    </div>
                     <h2>Login Form</h2>
                     <div className="form-group">
                         <label>Email:</label>
@@ -18,7 +23,7 @@ export default class Login extends Component {
                     </div>
                     <div className='buttons'>
                         <button type="submit" className="form-button">Login</button>
-                        <Link style={{ textDecoration: 'none' }} to={'/signup'}> 
+                        <Link style={{ textDecoration: 'none' }} to={'/signup'}>
                             <button type="submit" className="form-button2">Sign Up</button>
                         </Link>
                     </div>

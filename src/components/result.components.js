@@ -20,13 +20,21 @@ export default class Result extends Component{
         this.setState({
             score:urlParams.get('score'),
             correctCount:urlParams.get('correct'),
-            wrongCount:urlParams.get('wrong')
+            wrongCount:urlParams.get('wrong'),
+            noAnswerCount:urlParams.get('noanswer'),
         });
     }
 
     render() {
         return (
             <div className="bg">
+
+                <div className='loginButtonDiv'>
+                    <Link style={{ textDecoration: 'none' }} to={'/login'}>
+                        <button className='loginButton'>Sign In</button>
+                    </Link>
+                </div>
+
                 <div className='score'>
                         <h1> {this.state.score} </h1>
                         <p>  سکه  </p>
@@ -39,6 +47,10 @@ export default class Result extends Component{
                     <div className='buttonResultCorrect'>
                         <div> Doğru: {this.state.correctCount}  </div>
                     </div>
+                </div>
+
+                <div className='no_answer'>
+                    Cevapsız: {this.state.noAnswerCount}
                 </div>
 
                 <Link style={{ textDecoration: 'none' }} to={'/'}> 

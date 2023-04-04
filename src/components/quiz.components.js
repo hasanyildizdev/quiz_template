@@ -9,12 +9,13 @@ export default class Game extends Component {
     super(props);
     this.i = 0;
     this.id = null;
-    this.questinNr = 1;
+    this.questionNr = 1;
     this.questionCount = 0;
     this.score = 0;
     this.buttonsActive = true;
     this.correctCount = 0;
     this.wrongCount = 0;
+    this.noAnswerCount = 0;
 
     this.state = {
       correctCartVisible: false,
@@ -71,22 +72,30 @@ export default class Game extends Component {
           this.buttonsActive = false;
           clearInterval(id);
           elem.style.width = "100%";
-          let correctAnswer = this.state.correctAnswers.find((a) => a.question_id === 1)['correct_answer_id'];
+          let correctAnswer = this.state.correctAnswers.find((a) => a.question_id === this.questionNr)['correct_answer_id'];
           document.getElementById(correctAnswer).style.backgroundColor = "rgba(0, 255, 0, 0.5)";
 
           music.stopMusic();
           music.playTimeUp();
           this.setState({ timeisup_visible: true })
           setTimeout(() => {
-            this.questinNr++;
-            this.i = 0;
-            this.setState({ timeisup_visible: false });
-            document.getElementById(correctAnswer).style.backgroundColor = "#16076E";
-            this.setState({ selectedAnswer: null });
-            this.move();
-            music.playMusic();
-            this.buttonsActive = true;
-          }, 2500);
+            this.questionNr++;
+            this.noAnswerCount++;
+            if(this.questionNr === this.questionCount + 1){
+              let data = { score:this.score, correct:this.correctCount, wrong:this.wrongCount, noanswer:this.noAnswerCount};
+              let queryString = new URLSearchParams(data).toString();
+              window.location.href = "/result?" + queryString;
+            }
+            else {
+              this.i = 0;
+              this.setState({ timeisup_visible: false });
+              document.getElementById(correctAnswer).style.backgroundColor = "#212373";
+              this.setState({ selectedAnswer: null });
+              this.move();
+              music.playMusic();
+              this.buttonsActive = true;
+            }
+          }, 3000);
         } else {
           elem.style.width = progress * 100 + "%";
           let countDown = Math.floor(remainingTime / 1000);
@@ -103,7 +112,7 @@ export default class Game extends Component {
 
   answered(answer) {
     let time = document.getElementById("timer").innerText;
-    let correctAnswer = this.state.correctAnswers.find((a) => a.question_id === 1)['correct_answer_id'];
+    let correctAnswer = this.state.correctAnswers.find((a) => a.question_id === this.questionNr)['correct_answer_id'];
     
     this.buttonsActive = false;
     music.stopMusic();
@@ -131,16 +140,16 @@ export default class Game extends Component {
     //console.log(this.score);
 
     setTimeout(() => {
-      this.questinNr++;
-      if(this.questinNr === this.questionCount + 1){
-        let data = { score:this.score, correct:this.correctCount, wrong:this.wrongCount};
+      this.questionNr++;
+      if(this.questionNr === this.questionCount + 1){
+        let data = { score:this.score, correct:this.correctCount, wrong:this.wrongCount, noanswer:this.noAnswerCount};
         let queryString = new URLSearchParams(data).toString();
         window.location.href = "/result?" + queryString;
       }
       else {
         this.i = 0;
-        answerStyle.backgroundColor = "#16076E";
-        correctAnswerStyle.backgroundColor = "#16076E";
+        answerStyle.backgroundColor = "#212373";
+        correctAnswerStyle.backgroundColor = "#212373";
         this.setState({ wrongCartVisible: false });
         this.setState({ correctCartVisible: false });
         this.setState({ selectedAnswer: null });
@@ -148,7 +157,7 @@ export default class Game extends Component {
         music.playMusic();
         this.buttonsActive = true;
       }
-    }, 3000);
+    }, 2500);
   }
 
   handleExitClick() {
@@ -164,7 +173,7 @@ export default class Game extends Component {
       <div className="bg">
 
         <div className='rowTop'>
-          <div className='questionNr'> { this.questinNr } / { this.questionCount } </div>
+          <div className='questionNr'> { this.questionNr } / { this.questionCount } </div>
 
           <div id='timeisup' className='answeredCart' style={{ display: this.state.timeisup_visible ? 'block' : 'none' }}>
             <img src="/img/timer.webp" alt="Logo" />
@@ -195,24 +204,24 @@ export default class Game extends Component {
           </div>
 
           <div className='question'>
-            {this.state.questions.find((a) => a.id === this.questinNr)?.text}
+            {this.state.questions.find((a) => a.question_id === this.questionNr)?.text}
           </div>
 
           <div>
             <div className='answer_row'>
               <button id='1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 1 }); this.answered(1); }} disabled={!this.buttonsActive}>
-                {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 1)?.text}
+                {this.state.answers.find((a) => a.question_id === this.questionNr && a.option === 1)?.text}
               </button>
               <button id='2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 2 }); this.answered(2); }} disabled={!this.buttonsActive}>
-              {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 2)?.text}
+              {this.state.answers.find((a) => a.question_id === this.questionNr && a.option === 2)?.text}
               </button>
             </div>
             <div className='answer_row'>
               <button id='3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 3 }); this.answered(3); }} disabled={!this.buttonsActive}>
-              {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 3)?.text}
+              {this.state.answers.find((a) => a.question_id === this.questionNr && a.option === 3)?.text}
               </button>
               <button id='4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 4 }); this.answered(4); }} disabled={!this.buttonsActive}>
-              {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 4)?.text}
+              {this.state.answers.find((a) => a.question_id === this.questionNr && a.option === 4)?.text}
               </button>
             </div>
           </div>
