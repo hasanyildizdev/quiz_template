@@ -1,6 +1,6 @@
 import './style.css';
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import music from './music';
 
 export default class Game extends Component {
@@ -12,6 +12,9 @@ export default class Game extends Component {
     this.questinNr = 1;
     this.questionCount = 0;
     this.score = 0;
+    this.buttonsActive = true;
+    this.correctCount = 0;
+    this.wrongCount = 0;
 
     this.state = {
       correctCartVisible: false,
@@ -65,6 +68,7 @@ export default class Game extends Component {
         let remainingTime = 11000 - elapsedTime;
         let progress = elapsedTime / 10100; // 10 seconds
         if (progress > 1) {
+          this.buttonsActive = false;
           clearInterval(id);
           elem.style.width = "100%";
           let correctAnswer = this.state.correctAnswers.find((a) => a.question_id === 1)['correct_answer_id'];
@@ -81,6 +85,7 @@ export default class Game extends Component {
             this.setState({ selectedAnswer: null });
             this.move();
             music.playMusic();
+            this.buttonsActive = true;
           }, 2500);
         } else {
           elem.style.width = progress * 100 + "%";
@@ -100,35 +105,50 @@ export default class Game extends Component {
     let time = document.getElementById("timer").innerText;
     let correctAnswer = this.state.correctAnswers.find((a) => a.question_id === 1)['correct_answer_id'];
     
+    this.buttonsActive = false;
     music.stopMusic();
     clearInterval(this.id);
+    let answerStyle =  document.getElementById(answer).style;
+    let correctAnswerStyle = document.getElementById(correctAnswer).style;
 
     if (answer === correctAnswer) {
+      this.correctCount++;
       music.playCorrect();
       this.setState({ correctCartVisible: true });
-      document.getElementById(answer).style.backgroundColor = "rgba(0, 255, 0, 0.5)";
+      answerStyle.backgroundColor = "rgba(0, 255, 0, 0.5)";
+
       if (time >= 5) { this.score = this.score + 12; }
       else { this.score = this.score + 10; }
     }
     else {
+      this.wrongCount++;
       music.playWrong();
       this.setState({ wrongCartVisible: true });
-      document.getElementById(answer).style.backgroundColor = "rgba(255, 0, 0, 0.5)";
-      document.getElementById(correctAnswer).style.backgroundColor = "rgba(0, 255, 0, 0.5)";
+      answerStyle.backgroundColor = "rgba(255, 0, 0, 0.5)";
+      correctAnswerStyle.backgroundColor = "rgba(0, 255, 0, 0.5)";
     }
+
+    //console.log(this.score);
 
     setTimeout(() => {
       this.questinNr++;
-      this.i = 0;
-      document.getElementById(answer).style.backgroundColor = "#16076E";
-      document.getElementById(correctAnswer).style.backgroundColor = "#16076E";
-      this.setState({ wrongCartVisible: false });
-      this.setState({ correctCartVisible: false });
-      this.setState({ selectedAnswer: null });
-      music.playMusic();
-      this.move();
+      if(this.questinNr === this.questionCount + 1){
+        let data = { score:this.score, correct:this.correctCount, wrong:this.wrongCount};
+        let queryString = new URLSearchParams(data).toString();
+        window.location.href = "/result?" + queryString;
+      }
+      else {
+        this.i = 0;
+        answerStyle.backgroundColor = "#16076E";
+        correctAnswerStyle.backgroundColor = "#16076E";
+        this.setState({ wrongCartVisible: false });
+        this.setState({ correctCartVisible: false });
+        this.setState({ selectedAnswer: null });
+        this.move();
+        music.playMusic();
+        this.buttonsActive = true;
+      }
     }, 3000);
-    console.log(this.score);
   }
 
   handleExitClick() {
@@ -180,18 +200,18 @@ export default class Game extends Component {
 
           <div>
             <div className='answer_row'>
-              <button id='1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 1 }); this.answered(1); }}>
+              <button id='1' className={`answer ${this.state.selectedAnswer === 1 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 1 }); this.answered(1); }} disabled={!this.buttonsActive}>
                 {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 1)?.text}
               </button>
-              <button id='2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 2 }); this.answered(2); }}>
+              <button id='2' className={`answer ${this.state.selectedAnswer === 2 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 2 }); this.answered(2); }} disabled={!this.buttonsActive}>
               {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 2)?.text}
               </button>
             </div>
             <div className='answer_row'>
-              <button id='3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 3 }); this.answered(3); }}>
+              <button id='3' className={`answer ${this.state.selectedAnswer === 3 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 3 }); this.answered(3); }} disabled={!this.buttonsActive}>
               {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 3)?.text}
               </button>
-              <button id='4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'}`} onClick={() => { this.setState({ selectedAnswer: 4 }); this.answered(4); }}>
+              <button id='4' className={`answer ${this.state.selectedAnswer === 4 && 'selected'} ${!this.buttonsActive && 'no-hover'}`} onClick={() => { this.setState({ selectedAnswer: 4 }); this.answered(4); }} disabled={!this.buttonsActive}>
               {this.state.answers.find((a) => a.question_id === this.questinNr && a.option === 4)?.text}
               </button>
             </div>

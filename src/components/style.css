@@ -398,6 +398,10 @@
     border: solid 0.2vw #00FF7F;
   }
 
+  .no-hover {
+    pointer-events: none;
+  }
+
   .answer.selected {
     color: #fff;
     border: solid 0.2vw #CCAAF0;
@@ -473,6 +477,7 @@
   }
 
   .answeredCart {
+    margin: 0 20%;
     position: absolute;
     top: 0;
     right: 0;
