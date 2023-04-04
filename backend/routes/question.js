@@ -18,7 +18,11 @@ module.exports = function (connection) {
   });
 
   router.route('/:id').get((req, res) => {
-    if (typeof req.params.id === 'number') {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) {
+      res.status(400).send('Invalid ID');
+      return;
+    }
       const query = `SELECT * FROM questions WHERE id = ${req.params.id};`;
       connection.query(query, (error, results) => {
         if (error) {
@@ -28,7 +32,6 @@ module.exports = function (connection) {
           res.json(results);
         }
       });
-    }
   });
 
   router.route('/add').post((req, res) => {
@@ -58,7 +61,15 @@ module.exports = function (connection) {
         connection.query(query, [question_id, correct_answer_id], (error) => { if (error) { console.error('Error fetching data from MySQL database: ', error); res.status(500).send('Internal Server Error');}}); 
       }
     });
+  });
 
+  router.route('/delete/:question_id').delete((req,res)=>{
+     let query = `DELETE FROM questions WHERE question_id = ${req.params.question_id};`;
+     connection.query(query, (error) => { if (error) { console.error('Error fetching data from MySQL database: ', error); res.status(500).send('Internal Server Error'); }});
+     query = `DELETE FROM answers WHERE question_id = ${req.params.question_id};`;
+     connection.query(query, (error) => { if (error) { console.error('Error fetching data from MySQL database: ', error); res.status(500).send('Internal Server Error'); }});
+     query = `DELETE FROM correct_answers WHERE question_id = ${req.params.question_id};`;
+     connection.query(query, (error) => { if (error) { console.error('Error fetching data from MySQL database: ', error); res.status(500).send('Internal Server Error'); }});
   });
 
 

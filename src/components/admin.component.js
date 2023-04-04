@@ -86,7 +86,7 @@ export default class Admin extends Component{
         }
 
         try {
-            axios.post('http://localhost:3001/questions/add',questionItem)
+            axios.post('http://localhost:3001/questions/add',questionItem);
             alert("Added Successfully"); 
             return window.location = '/admin';
         } catch (error) {
@@ -94,6 +94,19 @@ export default class Admin extends Component{
         }
         
     }
+
+    onDeleteQuestion = async (question_Id) => {
+        if(window.confirm("Are you sure you want to delete this question?")){
+            try {
+                axios.delete(`http://localhost:3001/questions/delete/${question_Id}`);
+                alert("Deleted Successfully");
+                return window.location = '/admin';
+            } catch (error) {
+                alert("Something went wrong! Error: "+error);
+            }
+        }
+    }
+
 
     render() {
         return (
@@ -184,6 +197,7 @@ export default class Admin extends Component{
                                     <td>{this.state.answerList.find((a) => a.question_id === index+1 && a.option === 2)?.text}</td>
                                     <td>{this.state.answerList.find((a) => a.question_id === index+1 && a.option === 3)?.text}</td>
                                     <td>{this.state.answerList.find((a) => a.question_id === index+1 && a.option === 4)?.text}</td>
+                                    <td><button className='deleteQestionButton' onClick={() => this.onDeleteQuestion(index+1)}> Delete </button></td>
                                 </tr>
                             ))}
                         </tbody>

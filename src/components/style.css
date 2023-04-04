@@ -755,6 +755,13 @@
     border-right: none;
   }
 
+  .deleteQestionButton {
+    margin: 0.5vw;
+    padding: 0.3vw 0.6vw;
+    background-color: #FF0000;
+    cursor: pointer;
+  }
+
   @media screen and (max-width: 600px) {
     
     .row {
